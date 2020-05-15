@@ -1,4 +1,12 @@
----
+# First parameter
+$KeyPairName = New-Object Amazon.CloudFormation.Model.Parameter
+$KeyPairName.ParameterKey = "KeyPairName"
+$KeyPairName.ParameterValue = "pwsh-cfn"
+
+$sampleWindowsstack = @{
+    StackName = 'sampleWindowsec2'
+    Parameter = $KeyPairName
+    TemplateBody = @'
 Parameters:
   LatestAmiId:
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
@@ -48,3 +56,8 @@ Outputs:
     Value: !GetAtt
       - Ec2Instance
       - PublicDnsName
+
+'@
+}
+
+New-CFNStack @sampleWindowsstack
