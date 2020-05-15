@@ -16,7 +16,7 @@ Resources:
         - Key: Name
           Value: !Join
            - ""
-           - - "dev-web-01"
+           - - "dev01"
              - !Ref AWS::Region
       SecurityGroups:
         - !Ref MySecurityGroup

@@ -1,3 +1,7 @@
+if (-not (Get-Module -Name AWSPowerShell.NetCore)) {
+    Import-Module -Name AWSPowerShell.NetCore
+}
+
 # First parameter
 $KeyPairName = New-Object Amazon.CloudFormation.Model.Parameter
 $KeyPairName.ParameterKey = "KeyPairName"
